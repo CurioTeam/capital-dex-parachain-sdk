@@ -1,7 +1,9 @@
 import { ApiPromise, ApiRx } from '@polkadot/api';
 import { Vec } from '@polkadot/types';
 import { EventRecord } from '@polkadot/types/interfaces';
+import '@polkadot/api-augment'
 import { FrameSystemEventRecord } from '@polkadot/types/lookup';
+
 import { from, Observable } from 'rxjs';
 import { startWith, filter, switchMap, shareReplay } from 'rxjs/operators';
 

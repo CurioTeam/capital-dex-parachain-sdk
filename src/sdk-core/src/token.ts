@@ -10,7 +10,8 @@ import {
 } from './converter';
 import { sortTokenByName } from './sort-token';
 import { FixedPointNumber } from './fixed-point-number';
-import {CurrencyId, DexShare, TokenSymbol, TradingPair} from '../../interfaces';
+import {CurrencyId, DexShare, TokenSymbol, TradingPair} from '../../../node_modules/curio-parachain-ts-interfaces/src/interfaces';
+
 
 interface Configs {
   // basic token informations

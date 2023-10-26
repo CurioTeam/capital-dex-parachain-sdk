@@ -1,10 +1,9 @@
-import { isArray } from 'lodash';
 import {
   ConvertToCurrencyIdFailed,
   ConvertToCurrencyNameFailed,
   NotDexShareName,
 } from './errors';
-import { CurrencyId } from '../..//interfaces';
+import { CurrencyId } from '../../../node_modules/curio-parachain-ts-interfaces/src/interfaces';
 import { Token } from './token';
 import { AnyApi, CurrencyObject, MaybeCurrency, TokenType } from './types';
 

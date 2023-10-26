@@ -5,13 +5,14 @@
     "moduleResolution": "node",                       
     "baseUrl": ".",                                  
     "paths": {
-      "polkadotjs_test/*": ["src/*"],
-      "@polkadot/api/augment": ["src/interfaces/augment-api.ts"],
-      "@polkadot/types/augment": ["src/interfaces/augment-types.ts"],
+      // "sample-polkadotjs-typegen/*": ["node_modules/curio-parachain-ts-interfaces/src/*"],
+      // "polkadotjs_test/*": ["node_modules/curio-parachain-ts-interfaces/src/*"],
+      // "@polkadot/api/augment": ["node_modules/curio-parachain-ts-interfaces/src/interfaces/augment-api.ts"],
+      // "@polkadot/types/augment": ["node_modules/curio-parachain-ts-interfaces/src/interfaces/augment-types.ts"],
       // "sdk-swap": ["src/sdk-swap/src"],
       // "sdk-core": ["src/sdk-core/src"],
-      // "types": ["src/interfaces/types.ts"],
-      // "types/*": ["src/interfaces/*"]
+      // "types": ["node_modules/curio-parachain-ts-interfaces/src/interfaces/types.ts"],
+      // "types/*": ["node_modules/curio-parachain-ts-interfaces/src/interfaces/*"]
     },                                      
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

@@ -5,6 +5,10 @@
 import { getApiPromise, getSwapPromiseFromApi, getDefaultAccountsKeyring } from './common';
 import { FixedPointNumber, Token, TokenPair } from '../sdk-core/src';
 import { LiquidityPoolHelper } from '../sdk-swap/src';
+import "curio-parachain-ts-interfaces/src/interfaces/augment-api.ts"
+import "node_modules/curio-parachain-ts-interfaces/src/interfaces/augment-api"
+import "node_modules/curio-parachain-ts-interfaces/src/interfaces/augment-types"
+import "node_modules/curio-parachain-ts-interfaces/src/interfaces/types-lookup"
  
 async function main() {
     const api = await getApiPromise();

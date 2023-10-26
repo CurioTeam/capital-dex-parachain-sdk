@@ -1,9 +1,9 @@
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { SwapPromise } from './sdk-swap/src/swap-promise';
 
-import { TokenSymbol, CurrencyId } from './interfaces/types';
+import { TokenSymbol, CurrencyId } from './../node_modules/curio-parachain-ts-interfaces/src/interfaces';
 
-import * as definitions from './interfaces/definitions';
+import * as definitions from './../node_modules/curio-parachain-ts-interfaces/src/interfaces/definitions';
 
 async function main() {
     const types = Object.values(definitions).reduce((res, { types }): object => ({ ...res, ...types }), {});
@@ -18,7 +18,7 @@ async function main() {
 
     const CGT_symbol: TokenSymbol = api.createType('TokenSymbol', 'CGT');
     console.log(CGT_symbol.isCgt);
-    console.log(CGT_symbol.isDot);
+    // console.log(CGT_symbol.isDot);
 
     const CGT: CurrencyId = api.createType('CurrencyId', {Token: CGT_symbol});
     console.log(CGT.isToken);

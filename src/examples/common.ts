@@ -2,7 +2,7 @@ import { ApiPromise, WsProvider, Keyring } from '@polkadot/api';
 import { KeyringPair } from '@polkadot/keyring/types';
 import { SwapPromise } from '../sdk-swap/src'; 
 
-import * as definitions from '../interfaces/definitions';
+import * as definitions from '../../node_modules/curio-parachain-ts-interfaces/src/interfaces/definitions';
 
 const devWsEndpoint = 'ws://localhost:9988';
 
