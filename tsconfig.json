@@ -3,17 +3,12 @@
     "target": "es2019",
     "module": "CommonJS",
     "moduleResolution": "node",                       
-    "baseUrl": ".",                                  
+    "baseUrl": ".",
     "paths": {
-      // "sample-polkadotjs-typegen/*": ["node_modules/curio-parachain-ts-interfaces/src/*"],
-      // "polkadotjs_test/*": ["node_modules/curio-parachain-ts-interfaces/src/*"],
-      // "@polkadot/api/augment": ["node_modules/curio-parachain-ts-interfaces/src/interfaces/augment-api.ts"],
-      // "@polkadot/types/augment": ["node_modules/curio-parachain-ts-interfaces/src/interfaces/augment-types.ts"],
-      // "sdk-swap": ["src/sdk-swap/src"],
-      // "sdk-core": ["src/sdk-core/src"],
-      // "types": ["node_modules/curio-parachain-ts-interfaces/src/interfaces/types.ts"],
-      // "types/*": ["node_modules/curio-parachain-ts-interfaces/src/interfaces/*"]
-    },                                      
+      "@polkadot/api/augment": ["node_modules/curio-parachain-ts-interfaces/src/interfaces/augment-api.ts"],
+      "@polkadot/types/augment": ["node_modules/curio-parachain-ts-interfaces/src/interfaces/augment-types.ts"],
+      //"@polkadot/types/lookup": ["node_modules/curio-parachain-ts-interfaces/src/interfaces/types-lookup.ts"]
+    },                                                                 
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,                                 

@@ -1,3 +1,6 @@
+import 'curio-parachain-ts-interfaces/src/interfaces/augment-api';
+import 'curio-parachain-ts-interfaces/src/interfaces/augment-types';
+
 import { ApiPromise, ApiRx } from '@polkadot/api';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
