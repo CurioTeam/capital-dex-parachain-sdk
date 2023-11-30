@@ -3,7 +3,7 @@ import {
   ConvertToCurrencyNameFailed,
   NotDexShareName,
 } from './errors';
-import { CurrencyId } from '../../../node_modules/curio-parachain-ts-interfaces/src/interfaces';
+import { CurrencyId } from 'curio-parachain-ts-interfaces/interfaces';
 import { Token } from './token';
 import { AnyApi, CurrencyObject, MaybeCurrency, TokenType } from './types';
 

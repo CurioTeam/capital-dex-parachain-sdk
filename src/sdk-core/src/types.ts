@@ -1,4 +1,4 @@
-import { CurrencyId } from '../../../node_modules/curio-parachain-ts-interfaces/src/interfaces';
+import { CurrencyId } from 'curio-parachain-ts-interfaces/interfaces';
 import { ApiPromise, ApiRx } from '@polkadot/api';
 import { AccountId } from '@polkadot/types/interfaces';
 import { Codec, Observable } from '@polkadot/types/types';

@@ -625,9 +625,9 @@ create-require@^1.1.0:
   resolved "https://registry.npmjs.org/create-require/-/create-require-1.1.1.tgz"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
-"curio-parachain-ts-interfaces@https://github.com/CurioTeam/curio-parachain-ts-interfaces#c756312":
+"curio-parachain-ts-interfaces@https://github.com/CurioTeam/curio-parachain-ts-interfaces":
   version "1.0.0"
-  resolved "git+ssh://git@github.com/CurioTeam/curio-parachain-ts-interfaces.git#c7563125ec69fdca483e805d93a5e40c2253bf68"
+  resolved "git+ssh://git@github.com/CurioTeam/curio-parachain-ts-interfaces.git#cac9c5dc315efae400af26e95dbab724e6bbb7d7"
   dependencies:
     "@polkadot/api" "^10.4.1"
 

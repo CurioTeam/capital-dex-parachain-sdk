@@ -1,4 +1,4 @@
-import primitivesConfig from '../../../node_modules/curio-parachain-ts-interfaces/src/interfaces/primitives/definitions';
+import primitivesConfig from 'curio-parachain-ts-interfaces/interfaces/primitives/definitions';
 import {
   getCurrencyTypeByName,
   isBasicToken,

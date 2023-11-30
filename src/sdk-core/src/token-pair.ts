@@ -2,7 +2,7 @@ import { Token } from './token';
 import {
   CurrencyId,
   TradingPair
-} from 'curio-parachain-ts-interfaces/src/interfaces';
+} from 'curio-parachain-ts-interfaces/interfaces';
 import { assert } from '@polkadot/util';
 import { AnyApi } from './types';
 

@@ -6,7 +6,7 @@
   "dependencies": {
     "@polkadot/api": "^10.4.1",
     "bignumber.js": "^9.1.2",
-    "curio-parachain-ts-interfaces": "https://github.com/CurioTeam/curio-parachain-ts-interfaces#c756312",
+    "curio-parachain-ts-interfaces": "https://github.com/CurioTeam/curio-parachain-ts-interfaces",
     "rxjs": "^7.4.0"
   },
   "scripts": {

@@ -2,7 +2,7 @@ import { ApiRx } from '@polkadot/api';
 import { memoize } from '@polkadot/util';
 import { Observable, from, of } from 'rxjs';
 import { filter, switchMap, startWith, map, shareReplay, withLatestFrom } from 'rxjs/operators';
-import { Balance, TradingPairStatus } from '../../../node_modules/curio-parachain-ts-interfaces/src/interfaces';
+import { Balance, TradingPairStatus } from 'curio-parachain-ts-interfaces/interfaces';
 import { eventMethodsFilter, mockEventRecord, Token, TokenPair, TokenSet, FixedPointNumber } from '../../sdk-core/src';
 import { ITuple } from '@polkadot/types/types';
 
