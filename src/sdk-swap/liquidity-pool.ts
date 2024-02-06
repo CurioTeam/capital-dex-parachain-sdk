@@ -1,4 +1,4 @@
-import { FixedPointNumber, Token } from '../../sdk-core/src';
+import { FixedPointNumber, Token } from '../sdk-core';
 
 interface LiquidityPoolState {
   token0: Token;

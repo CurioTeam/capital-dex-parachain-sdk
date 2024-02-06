@@ -3,7 +3,7 @@ import { memoize } from '@polkadot/util';
 import { Observable, from, of } from 'rxjs';
 import { filter, switchMap, startWith, map, shareReplay, withLatestFrom } from 'rxjs/operators';
 import { Balance, TradingPairStatus } from 'curio-parachain-ts-interfaces/interfaces';
-import { eventMethodsFilter, mockEventRecord, Token, TokenPair, TokenSet, FixedPointNumber } from '../../sdk-core/src';
+import { eventMethodsFilter, mockEventRecord, Token, TokenPair, TokenSet, FixedPointNumber } from '../sdk-core';
 import { ITuple } from '@polkadot/types/types';
 
 import { SwapParameters } from './swap-parameters';

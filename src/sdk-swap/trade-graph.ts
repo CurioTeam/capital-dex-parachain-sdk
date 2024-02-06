@@ -1,4 +1,4 @@
-import { Token, TokenPair } from '../../sdk-core/src';
+import { Token, TokenPair } from '../sdk-core';
 import { set } from 'lodash';
 
 export class TradeGraph {

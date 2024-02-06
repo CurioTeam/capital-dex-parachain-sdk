@@ -3,8 +3,8 @@ import { memoize } from '@polkadot/util';
 import { Observable, from, of, lastValueFrom } from 'rxjs';
 import { switchMap, map, shareReplay, withLatestFrom, filter, take } from 'rxjs/operators';
 import { Balance } from 'curio-parachain-ts-interfaces/interfaces';
-import { eventMethodsFilter, Token, TokenPair, TokenSet } from '../../sdk-core/src';
-import { FixedPointNumber } from '../../sdk-core/src';
+import { eventMethodsFilter, Token, TokenPair, TokenSet } from '../sdk-core';
+import { FixedPointNumber } from '../sdk-core';
 import { ITuple } from '@polkadot/types/types';
 
 import { SwapParameters } from './swap-parameters';
@@ -92,7 +92,7 @@ export class SwapPromise extends SwapBase<ApiPromise> {
     };
 
     inner();
-    
+
     this.api.query.system.events((result: Vec<EventRecord>) => {
       for (const event of result) {
         if (eventMethodsFilter(['EnableTradingPair', 'ProvisioningToEnabled', 'DisableTradingPair'])(event)) {
