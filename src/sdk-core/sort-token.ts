@@ -9,7 +9,8 @@ import { TokenType } from './types';
 
 const TOKEN_TYPE_WEIGHTS = {
   [TokenType.BASIC]: 9,
-  [TokenType.DEX_SHARE]: 8
+  [TokenType.DEX_SHARE]: 8,
+  [TokenType.FOREIGN_ASSET]: 7
 };
 
 export function getTokenTypeWeight(name: string): number {

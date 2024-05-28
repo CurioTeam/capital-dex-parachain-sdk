@@ -9,7 +9,8 @@ const converter_1 = require("./converter");
 const types_1 = require("./types");
 const TOKEN_TYPE_WEIGHTS = {
     [types_1.TokenType.BASIC]: 9,
-    [types_1.TokenType.DEX_SHARE]: 8
+    [types_1.TokenType.DEX_SHARE]: 8,
+    [types_1.TokenType.FOREIGN_ASSET]: 7
 };
 function getTokenTypeWeight(name) {
     return 1000 * (TOKEN_TYPE_WEIGHTS[(0, converter_1.getCurrencyTypeByName)(name)] || 0);

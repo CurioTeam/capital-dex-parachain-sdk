@@ -627,7 +627,7 @@ create-require@^1.1.0:
 
 "curio-parachain-ts-interfaces@https://github.com/CurioTeam/curio-parachain-ts-interfaces":
   version "1.0.0"
-  resolved "git+ssh://git@github.com/CurioTeam/curio-parachain-ts-interfaces.git#cac9c5dc315efae400af26e95dbab724e6bbb7d7"
+  resolved "https://github.com/CurioTeam/curio-parachain-ts-interfaces#a4e8f82d5f306040f5c3d61284a907bfabc66f9a"
   dependencies:
     "@polkadot/api" "^10.4.1"
 

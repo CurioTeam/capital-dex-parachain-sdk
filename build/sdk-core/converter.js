@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.forceToCurrencyName = exports.getCurrencyObject = exports.getDexShareCurrencyObject = exports.getBasicCurrencyObject = exports.getCurrencyTypeByName = exports.unzipDexShareName = exports.isDexShareName = exports.createDexShareName = exports.isBasicToken = void 0;
+exports.forceToCurrencyName = exports.getCurrencyObject = exports.getDexShareCurrencyObject = exports.getTokenCurrencyObject = exports.getCurrencyTypeByName = exports.unzipDexShareName = exports.isDexShareName = exports.createDexShareName = exports.isBasicToken = void 0;
 const errors_1 = require("./errors");
 const token_1 = require("./token");
 const types_1 = require("./types");
+const constants_1 = require("./constants");
+const tokens_registry_1 = require("./tokens-registry");
 function isBasicToken(name) {
     return name.search('//') < 0;
 }
@@ -29,20 +31,26 @@ exports.unzipDexShareName = unzipDexShareName;
 function getCurrencyTypeByName(name) {
     if (isDexShareName(name))
         return types_1.TokenType.DEX_SHARE;
-    return types_1.TokenType.BASIC;
+    if (constants_1.BASIC_TOKEN_SYMBOLS.includes(name)) {
+        return types_1.TokenType.BASIC;
+    }
+    return types_1.TokenType.FOREIGN_ASSET;
 }
 exports.getCurrencyTypeByName = getCurrencyTypeByName;
-function getBasicCurrencyObject(name) {
-    return { Token: name };
+function getTokenCurrencyObject(name) {
+    if (!tokens_registry_1.TOKEN_NAME_TO_TOKEN_MAP.has(name)) {
+        throw Error(`Unexpected token name: ${name}`);
+    }
+    return tokens_registry_1.TOKEN_NAME_TO_TOKEN_MAP.get(name).currencyId;
 }
-exports.getBasicCurrencyObject = getBasicCurrencyObject;
+exports.getTokenCurrencyObject = getTokenCurrencyObject;
 function getDexShareCurrencyObject(name) {
     const inner = (name) => {
         if (isDexShareName(name)) {
             const [name1, name2] = unzipDexShareName(name);
             return { DexShare: [inner(name1), inner(name2)] };
         }
-        return getBasicCurrencyObject(name);
+        return getTokenCurrencyObject(name);
     };
     return inner(name);
 }
@@ -50,7 +58,7 @@ exports.getDexShareCurrencyObject = getDexShareCurrencyObject;
 function getCurrencyObject(name) {
     if (isDexShareName(name))
         return getDexShareCurrencyObject(name);
-    return getBasicCurrencyObject(name);
+    return getTokenCurrencyObject(name);
 }
 exports.getCurrencyObject = getCurrencyObject;
 function forceToCurrencyName(target) {
@@ -65,6 +73,14 @@ function forceToCurrencyName(target) {
             return target.asToken.toString();
         if (target.isDexShare)
             return target.asDexShare.toString();
+        if (target.isForeignAsset) {
+            const assetId = target.asForeignAsset.toNumber();
+            const foreignAsset = tokens_registry_1.FOREIGN_ASSET_ID_TO_TOKEN_MAP.get(assetId);
+            if (foreignAsset) {
+                return foreignAsset.symbol;
+            }
+        }
+        ;
         return target.toString();
     }
     catch (e) {

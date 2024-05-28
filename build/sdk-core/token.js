@@ -24,6 +24,9 @@ class Token {
     get isDexShare() {
         return this.type === types_1.TokenType.DEX_SHARE;
     }
+    get isForeignAsset() {
+        return this.type === types_1.TokenType.FOREIGN_ASSET;
+    }
     get decimal() {
         console.warn('decimal is deprecated, please use decimals');
         return this.decimals;

@@ -6,6 +6,8 @@ import {
 import { CurrencyId } from 'curio-parachain-ts-interfaces/interfaces';
 import { Token } from './token';
 import { AnyApi, CurrencyObject, MaybeCurrency, TokenType } from './types';
+import { BASIC_TOKEN_SYMBOLS, DEPRECATED_STABLE_SYMBOLS, NATIVE_TOKEN_SYMBOL, PARENT_TOKEN_SYMBOL } from './constants';
+import { FOREIGN_ASSET_ID_TO_TOKEN_MAP, TOKEN_NAME_TO_TOKEN_MAP } from './tokens-registry';
 
 /**
  *  we set a name with a prefix to all types of tokens for easy passing and use.
@@ -50,11 +52,18 @@ export function getCurrencyTypeByName(name: string): TokenType {
 
   if (isDexShareName(name)) return TokenType.DEX_SHARE;
 
-  return TokenType.BASIC;
+  if (BASIC_TOKEN_SYMBOLS.includes(name)) {
+    return TokenType.BASIC;
+  }
+
+  return TokenType.FOREIGN_ASSET;
 }
 
-export function getBasicCurrencyObject(name: string): CurrencyObject {
-  return { Token: name };
+export function getTokenCurrencyObject(name: string): CurrencyObject {
+  if (!TOKEN_NAME_TO_TOKEN_MAP.has(name)) {
+    throw Error(`Unexpected token name: ${name}`);
+  }
+  return TOKEN_NAME_TO_TOKEN_MAP.get(name)!.currencyId;
 }
 
 export function getDexShareCurrencyObject(name: string): CurrencyObject {
@@ -65,7 +74,7 @@ export function getDexShareCurrencyObject(name: string): CurrencyObject {
       return { DexShare: [inner(name1), inner(name2)] };
     }
 
-    return getBasicCurrencyObject(name);
+    return getTokenCurrencyObject(name);
   };
 
   return inner(name);
@@ -74,7 +83,7 @@ export function getDexShareCurrencyObject(name: string): CurrencyObject {
 export function getCurrencyObject(name: string): CurrencyObject {
   if (isDexShareName(name)) return getDexShareCurrencyObject(name);
 
-  return getBasicCurrencyObject(name);
+  return getTokenCurrencyObject(name);
 }
 
 /**
@@ -93,42 +102,16 @@ export function forceToCurrencyName(target: MaybeCurrency): string {
     
     if ((target as CurrencyId).isDexShare) return (target as CurrencyId).asDexShare.toString();
 
+    if ((target as CurrencyId).isForeignAsset) {
+      const assetId = (target as CurrencyId).asForeignAsset.toNumber();
+      const foreignAsset = FOREIGN_ASSET_ID_TO_TOKEN_MAP.get(assetId);
+      if (foreignAsset) {
+        return foreignAsset.symbol;
+      }
+    };
+
     return target.toString();
   } catch (e) {
     throw new ConvertToCurrencyNameFailed(target);
   }
 }
-
-// export function forceToCurrencyId(api: AnyApi, target: MaybeCurrency): AcalaPrimitivesCurrencyCurrencyId {
-//   try {
-//     const name = forceToCurrencyName(target);
-
-//     return api.registry.createType('AcalaPrimitivesCurrencyCurrencyId', getCurrencyObject(name));
-//   } catch (e) {
-//     throw new ConvertToCurrencyIdFailed(target);
-//   }
-// }
-
-// export const forceToTokenSymbolCurrencyId = (
-//   api: AnyApi,
-//   target: string | Token | AcalaPrimitivesCurrencyCurrencyId | AcalaPrimitivesCurrencyTokenSymbol
-// ): AcalaPrimitivesCurrencyCurrencyId => {
-//   const name = target.toString();
-
-//   return forceToCurrencyId(api, name);
-// };
-
-// export const forceToDexShareCurrencyId = (
-//   api: AnyApi,
-//   target: [string, string] | AcalaPrimitivesCurrencyCurrencyId
-// ): AcalaPrimitivesCurrencyCurrencyId => {
-//   let name = '';
-
-//   if (isArray(target)) {
-//     name = createDexShareName(target[0], target[1]);
-//   } else {
-//     name = forceToCurrencyName(target);
-//   }
-
-//   return forceToCurrencyId(api, name);
-// };

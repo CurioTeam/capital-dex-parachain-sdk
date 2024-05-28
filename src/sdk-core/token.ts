@@ -71,6 +71,10 @@ export class Token {
     return this.type === TokenType.DEX_SHARE;
   }
 
+  get isForeignAsset(): boolean {
+    return this.type === TokenType.FOREIGN_ASSET;
+  }
+
   get decimal(): number {
     console.warn('decimal is deprecated, please use decimals');
 

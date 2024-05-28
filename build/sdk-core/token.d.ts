@@ -34,6 +34,7 @@ export declare class Token {
     constructor(name: string, configs?: Configs);
     get isTokenSymbol(): boolean;
     get isDexShare(): boolean;
+    get isForeignAsset(): boolean;
     get decimal(): number;
     static create(name: string, configs?: Configs): Token;
     static fromCurrencyName(name: string, configs?: Configs): Token;

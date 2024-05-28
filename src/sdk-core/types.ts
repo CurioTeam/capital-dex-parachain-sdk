@@ -20,7 +20,8 @@ export type MaybeAccount = string | AccountId | Codec;
 
 export enum TokenType {
   'BASIC',
-  'DEX_SHARE'
+  'DEX_SHARE',
+  'FOREIGN_ASSET'
 }
 
 /**
@@ -29,4 +30,5 @@ export enum TokenType {
  */
 export type CurrencyObject =
   | { Token: string }
-  | { DexShare: [CurrencyObject, CurrencyObject] };
+  | { DexShare: [CurrencyObject, CurrencyObject] }
+  | { ForeignAsset: number };

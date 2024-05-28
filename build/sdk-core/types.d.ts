@@ -9,10 +9,13 @@ export type MaybeCurrency = number | string | CurrencyId | Token | Codec | [stri
 export type MaybeAccount = string | AccountId | Codec;
 export declare enum TokenType {
     'BASIC' = 0,
-    'DEX_SHARE' = 1
+    'DEX_SHARE' = 1,
+    'FOREIGN_ASSET' = 2
 }
 export type CurrencyObject = {
     Token: string;
 } | {
     DexShare: [CurrencyObject, CurrencyObject];
+} | {
+    ForeignAsset: number;
 };
