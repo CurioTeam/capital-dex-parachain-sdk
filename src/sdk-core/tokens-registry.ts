@@ -37,6 +37,11 @@ export const TOKENS_LIST: IToken[] = [
     symbol: "BSX",
     decimals: 12,
     currencyId: { ForeignAsset: 0 },
+  },
+  {
+    symbol: "VAL",
+    decimals: 18,
+    currencyId: { ForeignAsset: 2 },
   }
 ];
 
