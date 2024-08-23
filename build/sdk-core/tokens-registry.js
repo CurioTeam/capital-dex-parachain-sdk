@@ -28,6 +28,11 @@ exports.TOKENS_LIST = [
         symbol: "BSX",
         decimals: 12,
         currencyId: { ForeignAsset: 0 },
+    },
+    {
+        symbol: "VAL",
+        decimals: 18,
+        currencyId: { ForeignAsset: 2 },
     }
 ];
 exports.TOKEN_NAME_TO_TOKEN_MAP = new Map(exports.TOKENS_LIST.map((token) => [token.symbol, token]));
