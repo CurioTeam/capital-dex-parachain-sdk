@@ -33,7 +33,12 @@ exports.TOKENS_LIST = [
         symbol: "VAL",
         decimals: 18,
         currencyId: { ForeignAsset: 2 },
-    }
+    },
+    {
+    symbol: "PSWAP",
+    decimals: 18,
+    currencyId: { ForeignAsset: 3 },
+    },
 ];
 exports.TOKEN_NAME_TO_TOKEN_MAP = new Map(exports.TOKENS_LIST.map((token) => [token.symbol, token]));
 exports.FOREIGN_ASSET_ID_TO_TOKEN_MAP = new Map(exports.TOKENS_LIST.filter(token => 'ForeignAsset' in token.currencyId)

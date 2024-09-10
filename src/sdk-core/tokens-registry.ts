@@ -42,7 +42,12 @@ export const TOKENS_LIST: IToken[] = [
     symbol: "VAL",
     decimals: 18,
     currencyId: { ForeignAsset: 2 },
-  }
+  },
+  {
+    symbol: "PSWAP",
+    decimals: 18,
+    currencyId: { ForeignAsset: 3 },
+  },
 ];
 
 export const TOKEN_NAME_TO_TOKEN_MAP = new Map<string, IToken>(TOKENS_LIST.map((token) => [token.symbol, token]));
